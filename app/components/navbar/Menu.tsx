@@ -1,6 +1,7 @@
 'use client'
 
 import { PrestationsList } from '@/app/data/PrestationsList';
+import { caprasimo } from '@/app/fonts/fonts';
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -16,7 +17,7 @@ const Menu = () => {
 
   return (
     <>
-      <ul className='list-none text-primary-color font-medium hidden lg:flex'>
+      <ul className={`${caprasimo.variable} font-subtitle list-none text-primary-color font-medium hidden lg:flex`}>
         <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'}>Accueil</Link></li>
         {prestations &&
           prestations.map((item) => 
@@ -30,11 +31,11 @@ const Menu = () => {
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
       </div>
       <div className={`${toggleMenu ? 'translate-x-0' : '-translate-x-[100%]'} overflow-x-hidden fixed top-0 left-0 w-full h-screen z-20 bg-secondary-color flex justify-center items-center transition`} onClick={handleClick}>
-        <ul className='list-none gap-4 text-2xl flex flex-col text-center text-beige'>
-          <li className='font-semibold'><Link href={'/'}>Accueil</Link></li>
+        <ul className={`${caprasimo.variable} font-subtitle list-none gap-4 text-2xl flex flex-col text-center text-beige`}>
+          <li className=''><Link href={'/'}>Accueil</Link></li>
           {prestations &&
           prestations.map((item) => 
-            <li key={item.id} className='pt-4 font-semibold border-t-4 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
+            <li key={item.id} className='pt-4 border-t-4 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
           )
         }        </ul>
       </div>
