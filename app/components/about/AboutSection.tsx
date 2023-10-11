@@ -7,7 +7,7 @@ function AboutSection() {
     <div className='w-full max-w-6xl mx-auto py-8 flex flex-wrap justify-between md:items-start lg:items-center'>
       <div className='w-full'>
         <h1 className={`${fabulous.variable} font-title text-secondary-color text-7xl sm:text-8xl text-center [text-shadow:_0_5px_0_rgb(195_29_39_/_100%)]`}>Manon Verdier</h1>
-        <h2 className={`${caprasimo.variable} font-subtitle text-stroke text-3xl mt-2 text-center sm:text-4xl sm:mt-4`}>Makeup artist</h2>
+        <h2 className={`${caprasimo.variable} font-subtitle text-primary-color text-3xl mt-2 text-center sm:text-4xl sm:mt-4`}>Makeup artist</h2>
       </div>
       <div className='relative mt-12 w-full md:w-[45%]'>
       <Image src={'/img/mano.png'} width={600} height={750} alt='Manon' className='w-full px-8 mt-14' />

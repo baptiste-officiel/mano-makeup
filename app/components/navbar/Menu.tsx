@@ -30,11 +30,11 @@ const Menu = () => {
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
       </div>
       <div className={`${toggleMenu ? 'translate-x-0' : '-translate-x-[100%]'} overflow-x-hidden fixed top-0 left-0 w-full h-screen z-20 bg-secondary-color flex justify-center items-center transition`} onClick={handleClick}>
-        <ul className='list-none gap-4 text-2xl flex flex-col text-center'>
+        <ul className='list-none gap-4 text-2xl flex flex-col text-center text-beige'>
           <li className='font-semibold'><Link href={'/'}>Accueil</Link></li>
           {prestations &&
           prestations.map((item) => 
-            <li key={item.id} className='pt-4 font-semibold border-t-2 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
+            <li key={item.id} className='pt-4 font-semibold border-t-4 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
           )
         }        </ul>
       </div>
