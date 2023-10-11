@@ -19,7 +19,7 @@ function AboutSection() {
             <p className='font-medium'>Maquilleuse lilloise agée de 23 ans, je suis passionnée de mode.
             Plus spécialisée dans les maquillages artistique et mode, je suis tout autant qualifiée pour des mises en beauté plus nude, des maquillages de cinéma et de photo.
             </p><br />
-            <p className='font-medium'>J'ai effectué de nombreux stages à l'Opéra de Bordeaux grâce à ma formation chez Annie Lay MakeupSchool, j'ai aussi travaillé pour la Fondation Bergonié sur une publicité contre le cancer; et maquillé pour quelques shootings, notamment pour l'éléction de Miss Biganos 2020.</p>
+            <p className='font-medium'>J&apos;ai effectué de nombreux stages à l&apos;Opéra de Bordeaux grâce à ma formation chez Annie Lay MakeupSchool, j&apos;ai aussi travaillé pour la Fondation Bergonié sur une publicité contre le cancer; et maquillé pour quelques shootings, notamment pour l&apos;élection de Miss Biganos 2020.</p>
         </div>
       </div>
     </div>
