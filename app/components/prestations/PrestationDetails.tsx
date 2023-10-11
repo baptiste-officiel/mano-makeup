@@ -21,7 +21,7 @@ const PrestationDetails:React.FC<PrestationDetailsProps> = ({
       {prestation && 
         <div className='px-4 mt-8 w-full max-w-4xl mx-auto'>
             <Image src={`${prestation.background}`} width={600} height={400} alt={`${prestation.title}`} className='w-full h-[200px] object-cover object-center rounded-2xl' />
-            <h2 className={`${caprasimo.variable} font-subtitle text-4xl text-center py-8 text-primary-color uppercase font-semibold`}>{prestation.title}</h2>
+            <h2 className={`${caprasimo.variable} font-subtitle text-4xl text-center py-8 text-primary-color uppercase font-semibold sm:text-5xl`}>{prestation.title}</h2>
             <p className='pb-8'>{prestation.description}</p>
             <p className='pb-1'><span className='font-semibold'>Durée : </span>{prestation.time}</p>
             <p><span className='font-semibold'>Tarif : </span>{prestation.price}€</p>
