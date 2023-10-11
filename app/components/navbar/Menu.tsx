@@ -17,10 +17,10 @@ const Menu = () => {
   return (
     <>
       <ul className='list-none text-primary-color font-medium hidden lg:flex'>
-        <li className='px-2'><Link href={'/'}>Accueil</Link></li>
+        <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'}>Accueil</Link></li>
         {prestations &&
           prestations.map((item) => 
-            <li key={item.id} className='px-2 border-l-2 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
+            <li key={item.id} className='px-2 border-l-2 border-primary-color duration-200 hover:text-secondary-color'><Link href={`/prestation/${item.id}`} className=''>{item.title}</Link></li>
           )
         }
       </ul>
