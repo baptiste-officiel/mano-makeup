@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
+      {/* <head>
+        <link rel='icon' href='/flower.ico'/>
+      </head> */}
       <body className={`${montserrat.variable} font-main`}>
         <Navbar />
         {children}

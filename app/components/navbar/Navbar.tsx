@@ -2,12 +2,13 @@ import { fabulous, montserrat } from '@/app/fonts/fonts'
 import React from 'react'
 import Menu from './Menu'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function Navbar() {
   return (
     <div className={`${montserrat.variable} font-main w-full border-b-4 border-primary-color`}>
-        <nav className='relative w-full max-w-6xl mx-auto px-4 md:px-0 flex justify-between items-center py-4'>
-            <Link href={'/'}><div className={`${fabulous.variable} font-title text-secondary-color border-4 px-4 py-2 rounded-md border-primary-color text-3xl uppercase`}>Mano</div></Link>
+        <nav className='relative w-full max-w-6xl mx-auto px-4 xl:px-0 flex justify-between items-center py-4'>
+            <Link href={'/'}><Image src={'/img/flower.png'} width={50} height={50} alt='Accueil' /></Link>
             <Menu />
         </nav>
     </div>
