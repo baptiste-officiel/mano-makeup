@@ -19,7 +19,7 @@ const Prestation:React.FC<prestationProps> = ({
   return (
     
     <>
-    <Link href={`/prestation/${id}`} className="block w-full px-4 py-2 md:w-[45%]">
+    <Link href={`/prestation/${id}`} className="block w-full my-2 md:w-[45%] bg-slate-700 rounded-3xl md:my-0">
         <div className={`w-full py-16 flex flex-col justify-between items-center gap-8 border-4 rounded-3xl border-primary-color bg-cover bg-center`} style={{backgroundImage: `url(${background})`}}>
             <h4 className={`text-white text-xl font-bold uppercase text-center`}>{title}</h4>
         </div>
