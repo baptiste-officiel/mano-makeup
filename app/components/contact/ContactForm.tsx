@@ -47,9 +47,9 @@ function ContactForm() {
   return (
     <div className='w-full lg:w-[45%]'>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-        <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="text" name="message" id="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+        <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} className='px-2 py-1 border-2 border-primary-color bg-transparent' />
+        <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className='px-2 py-1 border-2 border-primary-color bg-transparent' />
+        <input type="text" name="message" id="message" value={message} onChange={(e) => setMessage(e.target.value)} className='px-2 py-1 border-2 border-primary-color bg-transparent' />
         <button type="submit">Envoyer</button>
       </form>
     </div>
