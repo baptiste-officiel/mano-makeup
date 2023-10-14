@@ -13,6 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'about' : "url('/img/background-about.png')",
+          'footer' : "url('/img/prestanew3.svg')"
       },
       colors: {
         'beige' : '#FFF7CF',
