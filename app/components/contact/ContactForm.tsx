@@ -12,8 +12,6 @@ function ContactForm() {
 
     const handleSubmit = async(e: any) => {
         e.preventDefault();
-        alert('handleSubmit')
-
         let data = {
             name,
             email,
