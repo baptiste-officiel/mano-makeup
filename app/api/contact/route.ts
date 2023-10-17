@@ -10,9 +10,6 @@ export async function POST(
     request: Request
 ) {
 
-    console.log(process.env.NEXT_PUBLIC_PASSWORD);
-    
-
     let nodemailer = require('nodemailer')
     const transporter = nodemailer.createTransport({
         port: 465,
@@ -33,7 +30,6 @@ export async function POST(
         email,
         message
     } = body;
-    console.log("🚀 ~ file: route.ts:5 ~ body:", body)
  
     const mailData = {
         from: 'webmailtest0000@gmail.com',
@@ -46,7 +42,7 @@ export async function POST(
     await new Promise((resolve, reject) => {
       transporter.sendMail(mailData, (err: any, info: any) => {
         if (err) {
-          console.error(err);
+          // console.error(err);
           reject(err);
         } else {
           resolve(info);

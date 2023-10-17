@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { fabulous, montserrat, roboto_mono } from './fonts/fonts'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
+import ToasterProviders from './providers/ToasterProvider'
 
 // const inter = Inter({ subsets: ['latin'], variable: '--font-test' })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       </head> */}
       <body className={`${montserrat.variable} font-main`}>
         <Navbar />
+        <ToasterProviders />
         {children}
         <Footer />
       </body>
