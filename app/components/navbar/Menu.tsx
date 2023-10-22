@@ -33,7 +33,7 @@ const Menu = () => {
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
       </div>
-      <div className={`${toggleMenu ? 'translate-x-0' : '-translate-x-[100%]'} overflow-x-hidden fixed top-0 left-0 w-full h-screen z-20 bg-secondary-color flex justify-center items-center transition`} onClick={handleClick}>
+      <div className={`${toggleMenu ? 'translate-x-0' : '-translate-x-[100%]'} overflow-x-hidden fixed top-0 left-0 w-full h-screen z-20 bg-secondary-color flex justify-center items-center transition duration-500`} onClick={handleClick}>
         <ul className={`${caprasimo.variable} font-subtitle list-none gap-4 text-2xl flex flex-col text-center text-beige`}>
           <li className=''><Link href={'/'}>Accueil</Link></li>
           {prestations &&

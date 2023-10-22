@@ -29,8 +29,8 @@ const PrestationDetails:React.FC<PrestationDetailsProps> = ({
             <p><span className='font-semibold'>Tarif : </span>{prestation.secondPrice}€</p>
             }
             <div className='flex justify-between py-8 w-full max-w-2xl mx-auto'>
-                <Link href={'/'} className='px-4 py-2 bg-primary-color min-w-[120px] text-center rounded-lg text-white border-2 border-primary-color duration-200 hover:bg-transparent hover:text-primary-color'>Retour</Link>
-                <a href="mailto:manon.verdier@hotmail.fr" className='px-4 py-2 bg-primary-color min-w-[120px] text-center rounded-lg text-white border-2 border-primary-color duration-200 hover:bg-transparent hover:text-primary-color'>Contacter</a>
+                <Link href={'/'} className='px-4 py-2 min-w-[120px] text-center rounded-lg text-primary-color border-4 border-primary-color duration-200 hover:bg-transparent hover:text-primary-color'>Retour</Link>
+                <a href="mailto:manon.verdier@hotmail.fr" className='px-4 py-2 bg-primary-color min-w-[120px] text-center rounded-lg text-white border-4 border-primary-color duration-200 hover:bg-primary-color-hover hover:border-primary-color-hover focus:bg-transparent focus:border-primary-color focus:text-primary-color'>Contacter</a>
             </div>
         </div>
       }
