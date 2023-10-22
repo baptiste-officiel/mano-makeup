@@ -1,4 +1,3 @@
-import { PrestationsList } from '@/app/data/PrestationsList'
 import { caprasimo, fabulous } from '@/app/fonts/fonts';
 import Image from 'next/image';
 import Link from 'next/link';

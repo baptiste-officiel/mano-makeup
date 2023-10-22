@@ -1,6 +1,5 @@
 import { fabulous } from '@/app/fonts/fonts'
 import React from 'react'
-import { PrestationsList } from '../../data/PrestationsList'
 import Prestation from './Prestation';
 
 const getPrestations = async() => {

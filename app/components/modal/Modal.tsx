@@ -1,0 +1,13 @@
+import React from 'react'
+
+const Modal = ({children}: any) => {
+  return (
+    <div className='w-full min-w-full min-h-screen fixed top-0 left-0 bg-slate-600 bg-opacity-60 flex justify-center items-center z-40'>
+      <div className='relative bg-white w-[80%] py-6 px-4 rounded-lg'>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+export default Modal
