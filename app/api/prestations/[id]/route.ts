@@ -23,3 +23,24 @@ export const GET = async(request: any, {params}: any) => {
 
     }
 }
+
+export const DELETE = async(request: any, { params }: any) => {
+    try {
+        
+        const { id } = params;
+        console.log(id);
+        
+
+        await prisma.prestation.delete({
+            where: {
+                id
+            }
+        })
+
+        return NextResponse.json('Post has been deleted');
+
+    } catch (error) {
+        console.log("🚀 ~ file: route.ts:71 ~ DELETE ~ error:", error)
+        return NextResponse.json({message: 'POST error', error}, {status: 500})
+    }
+}

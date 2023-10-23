@@ -2,8 +2,11 @@
 
 import React, { useState } from 'react'
 import Modal from '../modal/Modal'
+import { useRouter } from 'next/navigation'
 
 const AddPrestation = () => {
+
+    const router = useRouter();
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -44,6 +47,8 @@ const AddPrestation = () => {
                 setDuration('');
                 setPrice('');
                 setSecondaryPrice('')
+                setModal(false)
+                router.refresh();
             })
         } catch (error) {
             console.log("🚀 ~ file: AddPrestation.tsx:48 ~ handleSubmit ~ error:", error)
