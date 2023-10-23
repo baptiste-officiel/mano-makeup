@@ -24,6 +24,45 @@ export const GET = async(request: any, {params}: any) => {
     }
 }
 
+export const PUT = async(request: any, { params }: any) => {
+    try {
+        const body = await request.json()
+        const {
+            title,
+            description,
+            image,
+            duration,
+            price,
+            secondaryPrice
+        } = body
+
+        const { id } = params;
+
+        const updatedPost = await prisma.prestation.update({
+            where: {
+                id
+            },
+            data: {
+                title,
+                description,
+                image,
+                duration,
+                price,
+                secondaryPrice
+            }
+        })
+
+        if (!updatedPost) {
+            return NextResponse.json({message: 'No post'}, {status: 404}) 
+        }
+
+        return NextResponse.json(updatedPost);
+
+    } catch (error) {
+        return NextResponse.json({message: 'UPDATE error', error}, {status: 500})
+    }
+}
+
 export const DELETE = async(request: any, { params }: any) => {
     try {
         

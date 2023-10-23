@@ -39,11 +39,21 @@ const PrestationsList = ({prestations}: any) => {
       const res = await fetch(`http://localhost:3000/api/prestations/${id}`)
       const data = await res.json()
       setPrestation(data)
+      
+      // if (data) {
+        setTitle(data.title)
+        setDescription(data.description)
+        setImage(data.image)
+        setDuration(data.duration)
+        setPrice(data.price)
+        setSecondaryPrice(data.secondaryPrice)
+      // }
+      
     } catch (error) {
       console.log("🚀 ~ file: PrestationsList.tsx:24 ~ getPrestation ~ error:", error)
     }
   }
-
+  
   const toggleModal = async(id?: string) => {
     console.log(id)
     if (id) {
@@ -78,8 +88,37 @@ const PrestationsList = ({prestations}: any) => {
     
   }
 
-  const handleEdit = async(e: any) => {
+  const handleEdit = async(e: any, id?: string) => {
     // console.log(id);
+    e.preventDefault();
+
+        const data = {title, description, image, duration, price, secondaryPrice}
+
+        try {
+          const response = await fetch(`http://localhost:3000/api/prestations/${id}`, {
+            method: 'PUT',
+            cache: 'no-store',
+            headers: {
+                "Content-Type": "application/json",
+              },
+            body: JSON.stringify(data)
+        }).then((res) => res.json())
+        .finally(() => {
+          setTitle('');
+          setDescription('');
+          setImage('');
+          setDuration('');
+          setPrice('');
+          setSecondaryPrice('');
+          router.refresh();
+        });
+        } catch (error) {
+          console.log("🚀 ~ file: AddPosts.tsx:31 ~ handleSubmit ~ error:", error)
+        }
+        setModal(false)
+        setPrestationId('');
+        setPrestation({})
+        setOnEdit(false)
     
   }
 
@@ -106,7 +145,7 @@ const PrestationsList = ({prestations}: any) => {
 
               {onEdit ? 
                 <>
-                  <form onSubmit={(e) => handleEdit(e)} className='w-full flex flex-col items-center gap-2 my-8'>
+                  <form onSubmit={(e) => handleEdit(e, prestation.id)} className='w-full flex flex-col items-center gap-2 my-8'>
                     <input type="text" value={title} className='border-2 border-primary-color rounded-md w-full max-w-[300px] mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
                     <textarea value={description} className='border-2 border-primary-color rounded-md w-full max-w-[300px] mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
                     <input type="text" value={image} className='border-2 border-primary-color rounded-md w-full max-w-[300px] mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
