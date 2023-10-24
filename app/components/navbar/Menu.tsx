@@ -22,10 +22,10 @@ const Menu = ({prestations}: any) => {
   return (
     <>
       <ul className={`${caprasimo.variable} font-subtitle list-none text-primary-color font-medium hidden lg:flex`}>
-        <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'} className={`${pathName === '/' ? 'text-secondary-color' : 'text-primary-color'} `}>Accueil</Link></li>
+        <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'} className={`${pathName === '/' ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color `}>Accueil</Link></li>
         {prestations &&
           prestations.map((item: any) => 
-            <li key={item.id} className='px-2 border-l-2 border-primary-color duration-200 hover:text-secondary-color'><Link href={`/prestation/${item.id}`} className={`${pathName === `/prestation/${item.id}` ? 'text-secondary-color' : 'text-primary-color'}`}>{item.title}</Link></li>
+            <li key={item.id} className='px-2 border-l-2 border-primary-color'><Link href={`/prestation/${item.id}`} className={`${pathName === `/prestation/${item.id}` ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color`}>{item.title}</Link></li>
           )
         }
       </ul>
@@ -41,7 +41,8 @@ const Menu = ({prestations}: any) => {
           prestations.map((item: any) => 
             <li key={item.id} className='pt-4 border-t-4 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
           )
-        }        </ul>
+        }
+        </ul>
       </div>
     </>
   )
