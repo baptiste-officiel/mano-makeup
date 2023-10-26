@@ -7,7 +7,7 @@ import React from 'react'
 function PrestationPage() {
 
     const params = useParams()
-    const id = params.id as unknown as number
+    const id = params.id as unknown as string
 
   return (
     <div>
