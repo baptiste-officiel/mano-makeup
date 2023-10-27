@@ -73,7 +73,7 @@ const AddPrestation = () => {
                 <h4 className='text-xl py-2 font-medium sm:text-center'>Ajouter une prestation</h4>
                 <form onSubmit={(e) => handleSubmit(e)} className='w-full flex flex-col items-center gap-2 my-6 mx-auto md:w-[80%]'>
                     <input type="text" value={title} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
-                    <textarea value={description} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea value={description} rows={6} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
                     <input type="text" value={image} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
                     <input type="text" value={duration} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setDuration(e.target.value)} />
                     <input type="text" value={price} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrice(e.target.value)} />

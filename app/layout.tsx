@@ -5,6 +5,7 @@ import { fabulous, montserrat, roboto_mono } from './fonts/fonts'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import ToasterProviders from './providers/ToasterProvider'
+import AuthProvider from './context/AuthContext'
 
 // const inter = Inter({ subsets: ['latin'], variable: '--font-test' })
 
@@ -24,10 +25,12 @@ export default function RootLayout({
         <link rel='icon' href='/flower.ico'/>
       </head> */}
       <body className={`${montserrat.variable} font-main`}>
+        <AuthProvider>
         <Navbar />
         <ToasterProviders />
         {children}
         <Footer />
+        </AuthProvider>
       </body>
     </html>
   )

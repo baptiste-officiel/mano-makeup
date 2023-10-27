@@ -156,7 +156,7 @@ const PrestationsList = ({prestations}: any) => {
                 <>
                   <form onSubmit={(e) => handleEdit(e, prestation.id)} className='w-full flex flex-col items-center gap-2 my-8 mx-auto md:w-[80%]'>
                     <input type="text" value={title} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
-                    <textarea value={description} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea value={description} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' rows={6} placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
                     <input type="text" value={image} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
                     <input type="text" value={duration} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setDuration(e.target.value)} />
                     <input type="text" value={price} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrice(e.target.value)} />
