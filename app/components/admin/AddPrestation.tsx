@@ -63,7 +63,6 @@ const AddPrestation = () => {
   return (
     <>
         <div className='w-full h-full my-4'>
-            <h2 className='text-center text-2xl font-medium'>Page d&apos;administration</h2>
             <button className='bg-primary-color mx-auto block mt-8 px-4 py-2 rounded-lg text-beige' onClick={() => toggleModal()}>Ajouter une prestation</button>
         </div>
 

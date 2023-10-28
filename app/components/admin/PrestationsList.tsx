@@ -29,8 +29,8 @@ const PrestationsList = ({prestations}: any) => {
   const [secondaryPrice, setSecondaryPrice] = useState('')
   const [prestationId, setPrestationId] = useState('')
   const [prestation, setPrestation] = useState<Prestation>({})
-  console.log("🚀 ~ file: PrestationsList.tsx:16 ~ PrestationsList ~ prestation:", prestation)
-  console.log("🚀 ~ file: PrestationsList.tsx:15 ~ PrestationsList ~ prestationId:", prestationId)
+  // console.log("🚀 ~ file: PrestationsList.tsx:16 ~ PrestationsList ~ prestation:", prestation)
+  // console.log("🚀 ~ file: PrestationsList.tsx:15 ~ PrestationsList ~ prestationId:", prestationId)
 
   const [modal, setModal] = useState(false)
   const [modalDeleteValidation, setModalDeleteValidation] = useState(false)
@@ -144,7 +144,7 @@ const PrestationsList = ({prestations}: any) => {
       </div>
 
       {modal && 
-        <Modal>
+        <Modal showModal={modal}>
           <span className='absolute top-4 right-4 text-3xl cursor-pointer px-2 z-10' onClick={() => toggleModal()}>&times;</span>
           {prestation && 
             <div className='relative flex flex-col gap-4 pt-16 pb-4 md:w-[80%] md:mx-auto'>
