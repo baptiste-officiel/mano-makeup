@@ -20,8 +20,8 @@ const Admin = async() => {
 
   return (
     <div className='min-h-screen relative w-full max-w-7xl mx-auto'>
-      <h2 className='text-center text-2xl font-medium pt-8'>Page d&apos;administration</h2>
       <LogOutButton />
+      <h2 className='text-center text-2xl font-medium pt-16'>Page d&apos;administration</h2>
       <AddPrestation />
       <PrestationsList prestations={prestations} />
     </div>
