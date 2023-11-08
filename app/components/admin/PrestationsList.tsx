@@ -137,7 +137,7 @@ const PrestationsList = ({prestations}: any) => {
         {prestations && 
           prestations.map((item: any) => 
           <div key={item.id} className={`relative w-full py-16 flex flex-col justify-between items-center gap-8 border-4 rounded-3xl border-primary-color bg-cover bg-center before:absolute before:bg-[rgb(0_0_0_/_20%)] before:w-full before:h-full before:top-0 before:left-0 before:rounded-3xl cursor-pointer hover:shadow-xl md:w-[45%]`} style={{backgroundImage: `url(${item.image})`}} onClick={() => toggleModal(item.id)}>
-              <h4 className={`relative text-white text-xl font-extrabold uppercase text-center text-stroke z-20`}>{item.title}</h4>
+              <h4 className={`relative text-white text-xl font-extrabold uppercase text-center text-stroke`}>{item.title}</h4>
           </div>
           )
         }
@@ -155,12 +155,12 @@ const PrestationsList = ({prestations}: any) => {
               {onEdit ? 
                 <>
                   <form onSubmit={(e) => handleEdit(e, prestation.id)} className='w-full flex flex-col items-center gap-2 my-8 mx-auto md:w-[80%]'>
-                    <input type="text" value={title} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
-                    <textarea value={description} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' rows={6} placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
-                    <input type="text" value={image} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
-                    <input type="text" value={duration} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setDuration(e.target.value)} />
-                    <input type="text" value={price} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrice(e.target.value)} />
-                    <input type="text" value={secondaryPrice} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix secondaire' onChange={(e) => setSecondaryPrice(e.target.value)} />
+                    <input type="text" value={title || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
+                    <textarea value={description || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' rows={6} placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" value={image || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
+                    <input type="text" value={duration || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setDuration(e.target.value)} />
+                    <input type="text" value={price || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrice(e.target.value)} />
+                    <input type="text" value={secondaryPrice || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix secondaire' onChange={(e) => setSecondaryPrice(e.target.value)} />
                     <button type="submit" className='px-4 py-2 bg-primary-color rounded text-beige mt-2 duration-300 hover:bg-primary-color-hover'>Publier</button>
                 </form>
                 </> : 
