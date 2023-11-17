@@ -5,14 +5,22 @@ import { useParams } from 'next/navigation';
 import React from 'react'
 
 const getPrestation = async(id?: string) => {
-  // console.log("🚀 ~ file: PrestationDetails.tsx:8 ~ getPrestation ~ id:", id)
+  console.log("🚀 ~ file: PrestationDetails.tsx:8 ~ getPrestation ~ id:", id)
   try {
-    const res = await fetch(`http://localhost:3000/api/prestations/${id}`)
-    return res.json()
-    // console.log("🚀 ~ file: PrestationDetails.tsx:11 ~ getPrestation ~ res:", res)
+    const res = await fetch(`http://localhost:3000/api/prestations`).then(res => res.json())
+    // let data = res.json()
+    // console.log("🚀 ~ file: PrestationDetails.tsx:12 ~ getPrestation ~ data:", data)
+    // return res.json()
+    console.log("🚀 ~ file: PrestationDetails.tsx:11 ~ getPrestation ~ res:", res)
+    const data = res.map((item: any) => {
+       return {...item, id: item.title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "")}
+  })
+    console.log("🚀 ~ file: PrestationDetails.tsx:18 ~ getPrestation ~ data:", data)
+    const prestation = data.filter((item: any) => item.id === id)
+    console.log("🚀 ~ file: PrestationDetails.tsx:20 ~ getPrestation ~ prestation:", prestation)
+    return prestation[0]
   } catch (error) {
-    // console.log("🚀 ~ file: PrestationDetails.tsx:12 ~ getPrestation ~ o:", error)
-    
+    // console.log("🚀 ~ file: PrestationDetails.tsx:12 ~ getPrestation ~ o:", error) 
   }
 }
 
@@ -24,11 +32,13 @@ const PrestationDetails:React.FC<PrestationDetailsProps> = async({
     id
 }) => {
 
+  console.log(id);
+  
   // const params = useParams()
     // console.log("🚀 ~ file: PrestationDetails.tsx:29 ~ params:", params)
     // const prestations = PrestationsList;
     const prestation = await getPrestation(id);
-    // console.log("🚀 ~ file: PrestationDetails.tsx:22 ~ prestations:", prestation)
+    console.log("🚀 ~ file: PrestationDetails.tsx:40 ~ prestations:", prestation)
     
     // const prestation = prestations.find((item) => item.id == id)
 
