@@ -29,8 +29,6 @@ const PrestationsList = ({prestations}: any) => {
   const [secondaryPrice, setSecondaryPrice] = useState('')
   const [prestationId, setPrestationId] = useState('')
   const [prestation, setPrestation] = useState<Prestation>({})
-  // console.log("🚀 ~ file: PrestationsList.tsx:16 ~ PrestationsList ~ prestation:", prestation)
-  // console.log("🚀 ~ file: PrestationsList.tsx:15 ~ PrestationsList ~ prestationId:", prestationId)
 
   const [modal, setModal] = useState(false)
   const [modalDeleteValidation, setModalDeleteValidation] = useState(false)
@@ -57,7 +55,6 @@ const PrestationsList = ({prestations}: any) => {
   }
   
   const toggleModal = async(id?: string) => {
-    console.log(id)
     if (id) {
       setPrestationId(id)
       await getPrestation(id)
@@ -72,7 +69,6 @@ const PrestationsList = ({prestations}: any) => {
   }
 
   const handleDelete = async(id?: string) => {
-    console.log(id);
     
     try {
       fetch(`http://localhost:3000/api/prestations/${id}`, {
@@ -96,7 +92,6 @@ const PrestationsList = ({prestations}: any) => {
   }
 
   const handleEdit = async(e: any, id?: string) => {
-    // console.log(id);
     e.preventDefault();
 
         const data = {title, description, image, duration, price, secondaryPrice}

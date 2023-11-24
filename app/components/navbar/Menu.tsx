@@ -15,13 +15,6 @@ const Menu = ({prestations}: any) => {
     setToggleMenu(!toggleMenu)
   }
 
-  // console.log('prestaMenu :', prestations);
-  
-  // const prestations = PrestationsList
-
-  // const id = title?.replace(/\s+/g, '').replace(/\//, '').toLowerCase();
-  // console.log(id);
-
   return (
     <>
       <ul className={`${caprasimo.variable} font-subtitle list-none text-primary-color font-medium hidden lg:flex`}>

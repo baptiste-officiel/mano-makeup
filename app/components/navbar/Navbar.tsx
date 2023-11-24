@@ -16,7 +16,6 @@ const getPrestations = async() => {
 async function Navbar() {
 
   const prestations = await getPrestations();
-  // console.log("🚀 ~ file: Prestations.tsx:19 ~ Prestations ~ prestations:", prestations)
 
   return (
     <div className={`${montserrat.variable} font-main w-full border-b-4 border-primary-color`}>

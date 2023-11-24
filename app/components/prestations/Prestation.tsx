@@ -15,7 +15,6 @@ const Prestation:React.FC<prestationProps> = ({
 
     // Modify aspect of the title to pass it in url params 
     id = title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "");
-    console.log(id);
 
   return (
     <>
