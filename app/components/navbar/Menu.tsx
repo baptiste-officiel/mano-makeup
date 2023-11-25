@@ -15,17 +15,13 @@ const Menu = ({prestations}: any) => {
     setToggleMenu(!toggleMenu)
   }
 
-  // console.log('prestaMenu :', prestations);
-  
-  // const prestations = PrestationsList
-
   return (
     <>
       <ul className={`${caprasimo.variable} font-subtitle list-none text-primary-color font-medium hidden lg:flex`}>
         <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'} className={`${pathName === '/' ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color `}>Accueil</Link></li>
         {prestations &&
           prestations.map((item: any) => 
-            <li key={item.id} className='px-2 border-l-2 border-primary-color'><Link href={`/prestation/${item.id}`} className={`${pathName === `/prestation/${item.id}` ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color`}>{item.title}</Link></li>
+            <li key={item.id} className='px-2 border-l-2 border-primary-color'><Link href={`/prestation/${item.title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "")}`} className={`${pathName === `/prestation/${item.id}` ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color`}>{item.title}</Link></li>
           )
         }
       </ul>
@@ -39,7 +35,7 @@ const Menu = ({prestations}: any) => {
           <li className=''><Link href={'/'}>Accueil</Link></li>
           {prestations &&
           prestations.map((item: any) => 
-            <li key={item.id} className='pt-4 border-t-4 border-primary-color'><Link href={`/prestation/${item.id}`}>{item.title}</Link></li>
+            <li key={item.id} className='pt-4 border-t-4 border-primary-color'><Link href={`/prestation/${item.title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "")}`}>{item.title}</Link></li>
           )
         }
         </ul>

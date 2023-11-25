@@ -5,7 +5,6 @@ export const GET = async(request: any, {params}: any) => {
 
     try {
         const { id } = params;
-        // console.log("🚀 ~ file: route.ts:9 ~ GET ~ id:", id)
 
         const prestation = await prisma.prestation.findUnique({
             where: { id }
@@ -18,7 +17,6 @@ export const GET = async(request: any, {params}: any) => {
         return NextResponse.json(prestation);
 
     } catch (error) {
-        // console.log("🚀 ~ file: route.ts:23 ~ GET ~ error:", error)
         return NextResponse.json({message: 'La prestation ne peut pas être affichée', error}, {status: 500})
 
     }
@@ -66,9 +64,7 @@ export const PUT = async(request: any, { params }: any) => {
 export const DELETE = async(request: any, { params }: any) => {
     try {
         
-        const { id } = params;
-        console.log(id);
-        
+        const { id } = params;        
 
         await prisma.prestation.delete({
             where: {
@@ -79,7 +75,6 @@ export const DELETE = async(request: any, { params }: any) => {
         return NextResponse.json('Post has been deleted');
 
     } catch (error) {
-        console.log("🚀 ~ file: route.ts:71 ~ DELETE ~ error:", error)
         return NextResponse.json({message: 'POST error', error}, {status: 500})
     }
 }

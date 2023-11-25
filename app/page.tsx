@@ -7,10 +7,6 @@ import { authOptions } from './api/auth/[...nextauth]/route'
 
 export default async function Home() {
 
-  // const session = await getServerSession(authOptions)
-  // console.log("🚀 ~ file: page.tsx:11 ~ Home ~ session:", session)
-
-
   return (
     <>
       <AboutSection />

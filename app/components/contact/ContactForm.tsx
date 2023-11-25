@@ -28,9 +28,7 @@ function ContactForm() {
                 },
                 body: JSON.stringify(data)
               }).then((res) => {
-                // console.log('Response received')
                 if (res.status === 200) {
-                  // console.log('Response succeeded!')
                   setSubmitted(true)
                   toast.success('Le message a bien été envoyé !')
                   setName('')
@@ -40,7 +38,6 @@ function ContactForm() {
               })
         } catch (error) {
           toast.error('Votre message n\'a pas pu être envoyé')
-            // console.log("🚀 ~ file: ContactForm.tsx:41 ~ handleSubmit ~ error:", error)
             
         }
         

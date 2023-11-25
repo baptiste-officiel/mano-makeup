@@ -19,7 +19,6 @@ export async function POST(
         email,
         password
     } = body;
-    console.log("🚀 ~ file: route.ts:5 ~ body:", body)
 
     if (!name || !email || !password) {
         return new NextResponse("Missing name, email or password", {status: 400})

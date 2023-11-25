@@ -16,7 +16,6 @@ function Register() {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    console.log(data);
 
     try {
       const res = await fetch('api/register', {
@@ -24,10 +23,9 @@ function Register() {
         body: JSON.stringify(data)
       }) 
       const userInfo = await res.json()
-      console.log("🚀 ~ file: page.tsx:32 ~ handleSubmit ~ userInfo:", userInfo)
       router.push('/admin')
     } catch (error) {
-      console.log(error);
+    console.log("🚀 ~ file: page.tsx:28 ~ handleSubmit ~ error:", error)
     }  
   }
 

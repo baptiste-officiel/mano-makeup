@@ -4,7 +4,7 @@ import Link from "next/link"
 
 interface prestationProps {
     title?: string,
-    id?: number,
+    id?: string,
     buttonLabel?: string,
     background?: string
 }
@@ -13,8 +13,8 @@ const Prestation:React.FC<prestationProps> = ({
     title, id, buttonLabel, background
 }) => {
 
-    // console.log(background);
-    // let custombg = background
+    // Modify aspect of the title to pass it in url params 
+    id = title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "");
 
   return (
     <>

@@ -33,7 +33,6 @@ const AddPrestation = () => {
             price,
             secondaryPrice
         }
-        console.log("🚀 ~ file: AddPrestation.tsx:32 ~ handleSubmit ~ data:", data)
 
         try {
             const res = await fetch('api/prestations', {
@@ -53,7 +52,6 @@ const AddPrestation = () => {
                 toast.success('La prestation a bien été ajoutée !')
             })
         } catch (error) {
-            console.log("🚀 ~ file: AddPrestation.tsx:48 ~ handleSubmit ~ error:", error)
             toast.error('La prestation n\'a pas pu être ajoutée')
             
         }
