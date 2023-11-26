@@ -29,7 +29,7 @@ const PrestationDetails:React.FC<PrestationDetailsProps> = async({
   return (
     <>
       {prestation && 
-        <div className='px-4 mt-8 w-full max-w-4xl mx-auto'>
+        <div className='px-4 mt-8 w-full max-w-4xl mx-auto flex-1'>
             <Image src={`${prestation.image}`} width={600} height={400} alt={`${prestation.title}`} className='w-full h-[200px] object-cover object-center rounded-2xl' />
             <h2 className={`${caprasimo.variable} font-subtitle text-4xl text-center py-8 text-primary-color uppercase font-semibold sm:text-5xl`}>{prestation.title}</h2>
             <p className='pb-8'>{prestation.description}</p>
