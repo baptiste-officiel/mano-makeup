@@ -3,7 +3,7 @@ import React from 'react'
 import Prestation from './Prestation';
 import { getPrestations } from '@/app/utils/getPrestations';
 
-type PrestationType = {
+export type PrestationType = {
   id: string;
   title: string;
   description: string;

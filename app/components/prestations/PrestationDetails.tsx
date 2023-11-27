@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react'
+import { PrestationType } from './Prestations';
 
 type PrestationDetailsProps = {
     id?: string
@@ -14,7 +15,7 @@ const PrestationDetails = async({
     id
 }: PrestationDetailsProps) => {
 
-    const prestation = await getPrestation(id);
+    const prestation: PrestationType = await getPrestation(id);
 
   return (
     <>
