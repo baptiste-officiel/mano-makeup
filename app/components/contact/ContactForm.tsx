@@ -1,7 +1,7 @@
 'use client'
 
 import { caprasimo } from '@/app/fonts/fonts'
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
 
 function ContactForm() {
@@ -11,8 +11,8 @@ function ContactForm() {
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
-    const handleSubmit = async(e: any) => {
-        e.preventDefault();
+    const handleSubmit = async(event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         let data = {
             name,
             email,
