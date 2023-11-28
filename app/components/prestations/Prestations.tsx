@@ -16,7 +16,6 @@ export type PrestationType = {
 async function Prestations() {
 
   const prestations = await getPrestations();
-  console.log("🚀 ~ file: Prestations.tsx:10 ~ Prestations ~ prestations:", prestations)
 
   return (
     <div className='mt-16 w-full max-w-6xl mx-auto px-4'>

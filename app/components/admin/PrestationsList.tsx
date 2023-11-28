@@ -139,7 +139,7 @@ const PrestationsList = ({prestations}: any) => {
       </div>
 
       {modal && 
-        <Modal showModal={modal}>
+        <Modal >
           <span className='absolute top-4 right-4 text-3xl cursor-pointer px-2 z-10' onClick={() => toggleModal()}>&times;</span>
           {prestation && 
             <div className='relative flex flex-col gap-4 pt-16 pb-4 md:w-[80%] md:mx-auto'>
