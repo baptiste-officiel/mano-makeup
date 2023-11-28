@@ -21,12 +21,20 @@ const PrestationsList = ({prestations}: any) => {
 
   const router = useRouter()
 
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
-  const [duration, setDuration] = useState('')
-  const [price, setPrice] = useState('')
-  const [secondaryPrice, setSecondaryPrice] = useState('')
+  // const [title, setTitle] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [image, setImage] = useState('')
+  // const [duration, setDuration] = useState('')
+  // const [price, setPrice] = useState('')
+  // const [secondaryPrice, setSecondaryPrice] = useState('')
+  const [prestationToEdit, setPrestationToEdit] = useState({
+    title: '',
+    description: '',
+    image: '',
+    duration: '',
+    price: '',
+    secondaryPrice: ''
+})
   const [prestationId, setPrestationId] = useState('')
   const [prestation, setPrestation] = useState<Prestation>({})
 
@@ -40,19 +48,26 @@ const PrestationsList = ({prestations}: any) => {
       const data = await res.json()
       setPrestation(data)
       
-      // if (data) {
-        setTitle(data.title)
-        setDescription(data.description)
-        setImage(data.image)
-        setDuration(data.duration)
-        setPrice(data.price)
-        setSecondaryPrice(data.secondaryPrice)
-      // }
+      // setTitle(data.title)
+      // setDescription(data.description)
+      // setImage(data.image)
+      // setDuration(data.duration)
+      // setPrice(data.price)
+      // setSecondaryPrice(data.secondaryPrice)
+        setPrestationToEdit({
+          ...prestationToEdit,
+          title: data.title,
+          description: data.description,
+          image: data.image,
+          duration: data.duration,
+          price: data.price,
+          secondaryPrice: data.secondaryPrice,
+        })
       
     } catch (error) {
       console.log("🚀 ~ file: PrestationsList.tsx:24 ~ getPrestation ~ error:", error)
     }
-  }
+  }  
   
   const toggleModal = async(id?: string) => {
     if (id) {
@@ -94,7 +109,7 @@ const PrestationsList = ({prestations}: any) => {
   const handleEdit = async(e: any, id?: string) => {
     e.preventDefault();
 
-        const data = {title, description, image, duration, price, secondaryPrice}
+        const {title, description, image, duration, price, secondaryPrice} = prestationToEdit
 
         try {
           const response = await fetch(`http://localhost:3000/api/prestations/${id}`, {
@@ -103,15 +118,23 @@ const PrestationsList = ({prestations}: any) => {
             headers: {
                 "Content-Type": "application/json",
               },
-            body: JSON.stringify(data)
+            body: JSON.stringify(prestationToEdit)
         }).then((res) => res.json())
         .finally(() => {
-          setTitle('');
-          setDescription('');
-          setImage('');
-          setDuration('');
-          setPrice('');
-          setSecondaryPrice('');
+          // setTitle('');
+          // setDescription('');
+          // setImage('');
+          // setDuration('');
+          // setPrice('');
+          // setSecondaryPrice('');
+          setPrestationToEdit({
+            title: '',
+            description: '',
+            image: '',
+            duration: '',
+            price: '',
+            secondaryPrice: ''
+          })
           router.refresh();
           toast.success('La modification a été prise en compte')
         });
@@ -150,12 +173,12 @@ const PrestationsList = ({prestations}: any) => {
               {onEdit ? 
                 <>
                   <form onSubmit={(e) => handleEdit(e, prestation.id)} className='w-full flex flex-col items-center gap-2 my-8 mx-auto md:w-[80%]'>
-                    <input type="text" value={title || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setTitle(e.target.value)} />
-                    <textarea value={description || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' rows={6} placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
-                    <input type="text" value={image || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setImage(e.target.value)} />
-                    <input type="text" value={duration || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setDuration(e.target.value)} />
-                    <input type="text" value={price || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrice(e.target.value)} />
-                    <input type="text" value={secondaryPrice || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix secondaire' onChange={(e) => setSecondaryPrice(e.target.value)} />
+                    <input type="text" value={prestationToEdit.title || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Titre' onChange={(e) => setPrestationToEdit({...prestationToEdit, title: e.target.value})} />
+                    <textarea value={prestationToEdit.description || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' rows={6} placeholder='Description' onChange={(e) => setPrestationToEdit({...prestationToEdit, description: e.target.value})} />
+                    <input type="text" value={prestationToEdit.image || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Image' onChange={(e) => setPrestationToEdit({...prestationToEdit, image: e.target.value})} />
+                    <input type="text" value={prestationToEdit.duration || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Durée' onChange={(e) => setPrestationToEdit({...prestationToEdit, duration: e.target.value})} />
+                    <input type="text" value={prestationToEdit.price || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix' onChange={(e) => setPrestationToEdit({...prestationToEdit, price: e.target.value})} />
+                    <input type="text" value={prestationToEdit.secondaryPrice || ''} className='border-2 border-primary-color rounded-md w-full mx-auto px-2 py-1 placeholder:text-sm shadow-sm' placeholder='Prix secondaire' onChange={(e) => setPrestationToEdit({...prestationToEdit, secondaryPrice: e.target.value})} />
                     <button type="submit" className='px-4 py-2 bg-primary-color rounded text-beige mt-2 duration-300 hover:bg-primary-color-hover'>Publier</button>
                 </form>
                 </> : 
