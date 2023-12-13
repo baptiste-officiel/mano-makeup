@@ -21,12 +21,6 @@ const PrestationsList = ({prestations}: any) => {
 
   const router = useRouter()
 
-  // const [title, setTitle] = useState('')
-  // const [description, setDescription] = useState('')
-  // const [image, setImage] = useState('')
-  // const [duration, setDuration] = useState('')
-  // const [price, setPrice] = useState('')
-  // const [secondaryPrice, setSecondaryPrice] = useState('')
   const [prestationToEdit, setPrestationToEdit] = useState({
     title: '',
     description: '',
@@ -47,13 +41,6 @@ const PrestationsList = ({prestations}: any) => {
       const res = await fetch(`http://localhost:3000/api/prestations/${id}`)
       const data = await res.json()
       setPrestation(data)
-      
-      // setTitle(data.title)
-      // setDescription(data.description)
-      // setImage(data.image)
-      // setDuration(data.duration)
-      // setPrice(data.price)
-      // setSecondaryPrice(data.secondaryPrice)
         setPrestationToEdit({
           ...prestationToEdit,
           title: data.title,
@@ -65,7 +52,7 @@ const PrestationsList = ({prestations}: any) => {
         })
       
     } catch (error) {
-      console.log("🚀 ~ file: PrestationsList.tsx:24 ~ getPrestation ~ error:", error)
+      toast.error('Réessaye, la prestation n\'a pas été chargée !')
     }
   }  
   
@@ -100,7 +87,6 @@ const PrestationsList = ({prestations}: any) => {
         toast.success('La prestation a bien été supprimée')
       })
     } catch (error) {
-        console.log("🚀 ~ file: PostsList.tsx:20 ~ handleDelete ~ error:", error)
         toast.error('La prestation n\'a pas pu être supprimée')
     }
     
@@ -121,12 +107,6 @@ const PrestationsList = ({prestations}: any) => {
             body: JSON.stringify(prestationToEdit)
         }).then((res) => res.json())
         .finally(() => {
-          // setTitle('');
-          // setDescription('');
-          // setImage('');
-          // setDuration('');
-          // setPrice('');
-          // setSecondaryPrice('');
           setPrestationToEdit({
             title: '',
             description: '',
@@ -139,7 +119,6 @@ const PrestationsList = ({prestations}: any) => {
           toast.success('La modification a été prise en compte')
         });
         } catch (error) {
-          console.log("🚀 ~ file: AddPosts.tsx:31 ~ handleSubmit ~ error:", error)
           toast.error('La modification n\'a pas pu étre effectuée')
         }
         setModal(false)
