@@ -17,6 +17,7 @@ const Menu = ({prestations}: any) => {
 
   return (
     <>
+      {/* Desktop navbar  */}
       <ul className={`${caprasimo.variable} font-subtitle list-none text-primary-color font-medium hidden lg:flex`}>
         <li className='px-2 duration-200 hover:text-secondary-color' ><Link href={'/'} className={`${pathName === '/' ? 'text-secondary-color' : 'text-primary-color'} duration-200 hover:text-secondary-color `}>Accueil</Link></li>
         {prestations &&
@@ -25,6 +26,7 @@ const Menu = ({prestations}: any) => {
           )
         }
       </ul>
+      {/* Mobile Navbar  */}
       <div className='flex relative z-30 flex-col gap-1 cursor-pointer lg:hidden' onClick={handleClick}>
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
         <span className='w-8 h-1.5 bg-primary-color rounded-full'></span>
