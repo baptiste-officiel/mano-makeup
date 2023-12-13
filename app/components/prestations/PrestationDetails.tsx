@@ -1,30 +1,21 @@
 import { caprasimo, fabulous } from '@/app/fonts/fonts';
+import { getPrestation } from '@/app/utils/getPrestation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react'
+import { PrestationType } from './Prestations';
 
-const getPrestation = async(id?: string) => {
-  try {
-    const res = await fetch(`http://localhost:3000/api/prestations`).then(res => res.json())
-    const data = res.map((item: any) => {
-       return {...item, id: item.title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "")}
-  })
-    const prestation = data.filter((item: any) => item.id === id)
-    return prestation[0]
-  } catch (error) {
-  }
-}
-
-interface PrestationDetailsProps {
+type PrestationDetailsProps = {
     id?: string
 }
 
-const PrestationDetails:React.FC<PrestationDetailsProps> = async({
-    id
-}) => {
 
-    const prestation = await getPrestation(id);
+const PrestationDetails = async({
+    id
+}: PrestationDetailsProps) => {
+
+    const prestation: PrestationType = await getPrestation(id);
 
   return (
     <>

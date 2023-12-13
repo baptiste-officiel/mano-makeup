@@ -2,6 +2,7 @@ import React from 'react'
 import AddPrestation from '../components/admin/AddPrestation'
 import PrestationsList from '../components/admin/PrestationsList'
 import LogOutButton from '../components/admin/LogOutButton'
+import toast from 'react-hot-toast'
 
 const getPrestations = async() => {
   try {
@@ -10,7 +11,7 @@ const getPrestations = async() => {
     })
     return res.json()
   } catch (error) {
-    console.log("🚀 ~ file: Prestations.tsx:15 ~ getPrestations ~ error:", error)
+    toast.error('Les prestations n\'ont pas pu être chargées')
   }
 }
 

@@ -2,16 +2,15 @@
 
 import Link from "next/link"
 
-interface prestationProps {
+type PrestationProps = {
     title?: string,
     id?: string,
-    buttonLabel?: string,
     background?: string
 }
 
-const Prestation:React.FC<prestationProps> = ({
-    title, id, buttonLabel, background
-}) => {
+const Prestation = ({
+    title, id, background
+}: PrestationProps) => {
 
     // Modify aspect of the title to pass it in url params 
     id = title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "");

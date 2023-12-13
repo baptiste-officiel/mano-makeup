@@ -3,6 +3,7 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 
 
 function Login() {
@@ -21,7 +22,7 @@ function Login() {
       signIn('credentials', {...data, redirect: false})
       .then(() => router.push('/admin'))
     } catch (error) {
-    console.log("🚀 ~ file: page.tsx:24 ~ handleSubmit ~ error:", error)
+      toast.error('Erreur lors de la connexion, essaie encore')
   }
 }
 
