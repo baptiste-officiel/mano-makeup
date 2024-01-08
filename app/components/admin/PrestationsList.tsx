@@ -133,7 +133,7 @@ const PrestationsList = ({prestations}: any) => {
       <div className='w-full px-4 py-6 flex gap-4 flex-wrap mx-auto justify-center'>
         {prestations && 
           prestations.map((item: any) => 
-          <div key={item.id} className={`relative w-full py-16 flex flex-col justify-between items-center gap-8 border-4 rounded-3xl border-primary-color bg-cover bg-center before:absolute before:bg-[rgb(0_0_0_/_20%)] before:w-full before:h-full before:top-0 before:left-0 before:rounded-3xl cursor-pointer hover:shadow-xl md:w-[45%]`} style={{backgroundImage: `url(${item.image})`}} onClick={() => toggleModal(item.id)}>
+          <div key={item.id} className={`relative w-full py-16 flex flex-col justify-between items-center gap-8 border-4 rounded-3xl border-primary-color bg-cover bg-center before:absolute before:bg-[rgb(0_0_0_/_20%)] before:w-full before:h-full before:top-0 before:left-0 before:rounded-2xl cursor-pointer hover:shadow-xl md:w-[45%]`} style={{backgroundImage: `url(${item.image})`}} onClick={() => toggleModal(item.id)}>
               <h4 className={`relative text-white text-xl font-extrabold uppercase text-center text-stroke`}>{item.title}</h4>
           </div>
           )
