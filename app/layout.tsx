@@ -24,7 +24,7 @@ export default function RootLayout({
       {/* <head>
         <link rel='icon' href='/flower.ico'/>
       </head> */}
-      <body className={`${montserrat.variable} font-main`}>
+      <body className={`${montserrat.variable} font-main relative`}>
         <AuthProvider>
         <Navbar />
         <ToasterProviders />

@@ -16,13 +16,12 @@ function Login() {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    console.log(data);
 
     try {
       signIn('credentials', {...data, redirect: false})
       .then(() => router.push('/admin'))
     } catch (error) {
-      console.log(error);
+    console.log("🚀 ~ file: page.tsx:24 ~ handleSubmit ~ error:", error)
   }
 }
 
