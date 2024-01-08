@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 
 function Register() {
@@ -17,16 +18,16 @@ function Register() {
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch('api/register', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      }) 
-      const userInfo = await res.json()
-      router.push('/admin')
-    } catch (error) {
-    console.log("🚀 ~ file: page.tsx:28 ~ handleSubmit ~ error:", error)
-    }  
+    toast.error('Vous n\'êtes pas autorisé à vous créer un compte')
+    // try {
+    //   // const res = await fetch('api/register', {
+    //   //   method: 'POST',
+    //   //   body: JSON.stringify(data)
+    //   // }) 
+    //   // const userInfo = await res.json()
+    //   // router.push('/admin')
+    // } catch (error) {
+    // }  
   }
 
   return (

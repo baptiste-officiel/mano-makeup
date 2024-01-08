@@ -1,35 +1,26 @@
 import { caprasimo, fabulous } from '@/app/fonts/fonts';
+import { getPrestation } from '@/app/utils/getPrestation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react'
+import { PrestationType } from './Prestations';
 
-const getPrestation = async(id?: string) => {
-  try {
-    const res = await fetch(`http://localhost:3000/api/prestations`).then(res => res.json())
-    const data = res.map((item: any) => {
-       return {...item, id: item.title?.toLowerCase().normalize('NFD').replace(/\s+/g, '').replace(/\//, '').replace(/[\u0300-\u036f]/g, "")}
-  })
-    const prestation = data.filter((item: any) => item.id === id)
-    return prestation[0]
-  } catch (error) {
-  }
-}
-
-interface PrestationDetailsProps {
+type PrestationDetailsProps = {
     id?: string
 }
 
-const PrestationDetails:React.FC<PrestationDetailsProps> = async({
-    id
-}) => {
 
-    const prestation = await getPrestation(id);
+const PrestationDetails = async({
+    id
+}: PrestationDetailsProps) => {
+
+    const prestation: PrestationType = await getPrestation(id);
 
   return (
     <>
       {prestation && 
-        <div className='px-4 mt-8 w-full max-w-4xl mx-auto'>
+        <div className='px-4 mt-8 w-full max-w-4xl mx-auto flex-1'>
             <Image src={`${prestation.image}`} width={600} height={400} alt={`${prestation.title}`} className='w-full h-[200px] object-cover object-center rounded-2xl' />
             <h2 className={`${caprasimo.variable} font-subtitle text-4xl text-center py-8 text-primary-color uppercase font-semibold sm:text-5xl`}>{prestation.title}</h2>
             <p className='pb-8'>{prestation.description}</p>
